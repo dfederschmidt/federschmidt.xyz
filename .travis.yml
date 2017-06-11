@@ -24,6 +24,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -arvce "ssh -o StrictHostKeyChecking=no" --delete-after --quiet $TRAVIS_BUILD_DIR/_dist $DEPLOY_USER@$DEPLOY_HOST:html
+  script: rsync -arvce "ssh -o StrictHostKeyChecking=no" --delete-after --quiet $TRAVIS_BUILD_DIR/_site $DEPLOY_USER@$DEPLOY_HOST:html
   on:
     branch: master
