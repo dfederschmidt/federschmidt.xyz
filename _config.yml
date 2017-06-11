@@ -33,10 +33,10 @@ author:
   location         : "Munich, Germany"
   email            : "daniel@federschmidt.xyz"
   github           : "dfederschmidt"
-  linkedin         : "https://www.linkedin.com/in/daniel-federschmidt-403348bb/"
+  linkedin         : "daniel-federschmidt-403348bb/"
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
   twitter          : "dfederschmidt"
-  xing             : "https://www.xing.com/profile/Daniel_Federschmidt?sc_o=mxb_p"
+  xing             : "Daniel_Federschmidt?sc_o=mxb_p"
 
 collections:
   portfolio:
