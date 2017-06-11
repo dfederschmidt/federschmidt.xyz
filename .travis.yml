@@ -10,9 +10,20 @@ branches:
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - secure: aUOynIzuemMf0zVy6SBYojmLxvLQon9klq0zf4PntchnYqYz+S3u884iwNXaxFfYO0Pq7vbEctyVD4peVF8xIQfV39fCwOQ3V6bNbhjlxgWbG/jA9MqMDRe9iDU+h5TfB7m9tqWmD1ZPhive1oPGOWFaIHsjICuwyUxPktwZUj8dGNnDzc9LWl5+wB/KWwLkft9ckBskun6O+d+w6dsfLGEm835gG2T3ZxFH+OCp5zVs7KO2KNXe8zjIB86p4V0qelnls27VmAXINVXb9i2ZLzTdxIhO+uGxfqt4MZyggQYyKu4l9Iqth7ABWi8vJgusOjf3UyWolI9uJvZLzR5svaOU/MkRNW3EFPiqMibsOpAYoqJmfyRZCjMNdvmuqiYFuZoXs6tBzsYefiVuj6OakvDusVTws+xSXKhcyzQJH16LHtfY1dEMsWEvcnfoMyomAcWPlhSBt2qgN4ZEJJTs2JSVkiEMKwz9jI5mhIB2B5QVnLySNLxAeIpuHTxi4DH/ELibeyqlRvXXNZPXk0qcWrGGQk7ZiNdVFboNTiE6rvmzvXMmpVyoJd1tcNbAjPAucf+PNlkMHD9bK5rPdA1hvIrRfOvvMlgpv8FwJzzTNyVv2S2fBZSg9O75M1Q/yc7G6aRMOqpnLsQbYOuWE1y/wuWtSUvpolENywYZlAYPlHM=
+  - secure: Cy66PBthPBnUzn2TxFsI2qCmpVp4zJqkKQbehxvnwzVJrSM73j+DyymbowgzyP87Vzk+kV40mqOLea0yxUpCPY8eRAhjc2fcBgEYOMhhx37ZhJ09WqZLk/79lJxKA7tWS1hL5uvaVAT6V9cgGjWPJAkV8CvvFyqWRoTyAFfwFLV9OaFYlJ7vubR/jLnxQ4xzrmiKD1/rbvh+iQK+8j4BHGPhn6fN4tJJcgNVvhAw/EbWfgdqY5hRexTiKBmtazSwwgjacn0u3QPs/TUrVIqFqikqhcwYsWKSTcw18n9fx/LoNEpEaKi0kdQYA1sY+cReIp6VLt+vGpPr/BoVUzB0EQbGRnvz6FhVks9azPRqBoWGd7vSuzMpW3Fsf64BVwL2B9r7H/BdvW6x8JxmVDiD/6U1ZQlJbc3JWLFa87ow8C4LARVaOzhQwg93YFVapL4x5LXoqdjmzhptvPti1ov8vPUEs0xHNTa75uiPMjrkJqP96v17gSCKTLDjQ72RI6EQtUHaX2CAkOC/GvF2jb2S/UxCCSMUUcsM/s9ab2KPcCcLT+3S3e2bX3sZelmVeI17CTJHvIuPqEJPZDf5tHTKRtX8kIrD2BL7BC45goNkZBlrF7TgPJtl/ROPZTYrDNMRfM/AIv177eRG4+7nhKoiQYNkuWP9LRfVojNZ9oe7xnA=
 exclude:
 - vendor
 sudo: false
-before_install:
+before_deploy:
 - openssl aes-256-cbc -K $encrypted_fc90e8e05e8e_key -iv $encrypted_fc90e8e05e8e_iv
-  -in deploy_rsa.enc -out deploy_rsa -d
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_dist $DEPLOY_USER@$DEPLOY_HOST:html
+  on:
+    branch: master
