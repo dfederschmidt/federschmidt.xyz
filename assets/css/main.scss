@@ -1,0 +1,102 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Mikro';
+  src:  url('/assets/fonts/Mikro-Regular.woff2') format('woff2'),
+}
+
+$sans-serif         : "Source Sans Pro", "PT Serif", Georgia, Times, serif;
+$sans-serif-narrow  : "Mikro", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+
+$global-font-family : $sans-serif;
+$header-font-family : $sans-serif-narrow;
+
+$deep-blue: #104870;
+$deep-grey: #eff0f1;
+$deep-lightblue: #2f9eef;
+$deep-green: #00a6ad;
+$deep-purple: #5342a9;
+
+$link-color: #2f9eef;
+
+.masthead, #site-nav  {
+    background-color: $deep-blue;
+}
+
+#site-nav .visible-links a, #site-nav .site-title {
+    color: #fff;
+}
+
+#site-nav .site-title {
+    font-weight: normal;
+}
+
+
+
+@import "minimal-mistakes";
+
+
+.greedy-nav button {
+    background-color: $deep-blue;
+}
+
+.author__bio {
+    font-family: $global-font-family;
+}
+
+.author__name {
+    font-family: $header-font-family;
+}
+
+#oneliner a {
+    color: $link-color;
+}
+
+#main > article > div > header > h1, 
+#main > div.archive > h1.page__title  {
+    background-color: $deep-lightblue;
+    color: #fff;
+    display: inline;
+    font-weight: 400;
+    line-height: 1.35;
+    padding: 5px 0px 5px 0px;
+    box-decoration-break: clone;
+    box-shadow: 1.42857vw 0 0 $deep-lightblue, -1.42857vw 0 0 $deep-lightblue;
+}
+
+.title-highlighter {
+    color: #fff;
+    display: inline;
+    font-weight: 400;
+    line-height: 1.35;
+    padding: 5px 0px 5px 0px;
+    box-decoration-break: clone;
+}
+
+#main > article > div > section {
+    margin-top: 30px;
+}
+
+.green-highlight {
+    background-color: $deep-green;
+    box-shadow: 1.42857vw 0 0 $deep-green, -1.42857vw 0 0 $deep-green;
+}
+
+
+.purple-highlight {
+    background-color: $deep-purple;
+    box-shadow: 1.42857vw 0 0 $deep-purple, -1.42857vw 0 0 $deep-purple;
+}
+
+.page__footer footer {
+    background-color: $deep-grey;
+}
+
+.page__footer {
+    color: #9aa6af;
+    border-top: 0;
+}
