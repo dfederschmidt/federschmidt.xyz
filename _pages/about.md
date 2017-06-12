@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 author_profile: true
 ---
-
-
 Hi. I'm Daniel Federschmidt. More on me down below!
 
 After completing my A-levels, I studied Applied Computer Science at <a target="_blank" href="http://www.dhbw-stuttgart.de/zielgruppen/international-visitors/overview/">DHBW Stuttgart</a>. 

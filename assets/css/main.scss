@@ -68,6 +68,10 @@ $link-color: #2f9eef;
     box-shadow: 1.42857vw 0 0 $deep-lightblue, -1.42857vw 0 0 $deep-lightblue;
 }
 
+#main > article.page, #main > div.archive {
+    padding-top: 10px;
+}
+
 .title-highlighter {
     color: #fff;
     display: inline;
