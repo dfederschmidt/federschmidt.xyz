@@ -25,4 +25,4 @@ Currently facets offers two visualizations which I played around with using an a
 
 The documentation is available [here](https://github.com/PAIR-code/facets/blob/master/facets_overview/README.md).
 
-![]("/assets/images/facets-overview.png")
+![Facets Overview]("/assets/images/facets-overview.png")
