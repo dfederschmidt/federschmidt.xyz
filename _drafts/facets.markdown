@@ -1,7 +1,6 @@
 ---
 layout: "single"
 title:  "Facets - A utility for dataset visualization."
-date:   2016-08-03
 categories: visualization data ml
 ---
 
