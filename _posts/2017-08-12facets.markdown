@@ -1,0 +1,44 @@
+---
+layout: "single"
+title:  "Facets - A utility for dataset visualization."
+categories: visualization data ml
+date:   2017-08-12
+---
+
+A couple of days ago one of the first tools to come out of the [Google PAIR initiative](https://ai.google/pair) was published on GitHub - [Facets](https://github.com/PAIR-code/facets). 
+
+<!--more-->
+
+It's described as a utility to visualize and understand machine learning datasets which sounds very promising!
+
+> Better data leads to better models.
+
+From practical courses at university and my work at Airbus in the data-driven technologies departement is that the more you know about your data and problem domain it originates from, the better you can build models to make predictions on new data. 
+
+Facets is written in Typescript using [Polymer](https://www.polymer-project.org/) Web Components. Since facets is web-based it integrates well into web pages or all kinds of notebook platforms such as [Jupyter](http://jupyter.org/) or [Apache Zeppelin](https://zeppelin.apache.org/). For using it in Jupyter Notebooks it can be installed as an nbextension. As of now, the sole channel of distribution is Github but i expect it will be available over pip in the near future to make installation more convenient.
+
+Currently facets offers two visualization tools which I played around with using an aviation-related dataset and I want to share my thoughts on both.
+
+## Facets Overview
+
+The documentation is available [here](https://github.com/PAIR-code/facets/blob/master/facets_overview/README.md).
+
+![Facets Overview]({{ site.url }}/assets/images/facets-overview.png)
+
+
+## Facets Dive
+
+The documentation is available [here](https://github.com/PAIR-code/facets/blob/master/facets_dive/README.md).
+
+![Facets Dive]({{ site.url }}/assets/images/facets-dive.png)
+
+## My Experience
+
+I discovered the project on HN when I currently was conducting some data exploration - what a lucky coincidence! 
+The setup was easy and quick (10 min). Since it's based on web technologies it's designed with the notebook-based workflow in mind which many data science people seem to like very well. One minor nitpick: It requires you to restart your Jupyter server with increased `iopub_data_rate_limit` or the visualizations will not load / crash the notebook.
+
+The Overview tool has been proven to be very valuable to get a quick overview on the distribution of the data. For more specific insights you can always fall back to pandas shenanigans since Facets is very easy to integrate if your data is already in a pandas `DataFrame`.
+
+Dive is a very nice tool and I was surprised by it's performance! My datas consisted of 26k documents and even for that amount of data the visualization loaded fairly quickly and was actually very usable and responsive. As Overview, Dive aims to give you better intuition on what's contained in your data and I think it does a very good job at that.
+
+I'm looking forward to see more from the PAIR project!
