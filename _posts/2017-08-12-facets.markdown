@@ -2,7 +2,7 @@
 layout: "single"
 title:  "Facets - A utility for dataset visualization."
 categories: visualization data ml
-date:   2017-08-12
+date: 2017-08-12
 ---
 
 A couple of days ago one of the first tools to come out of the [Google PAIR initiative](https://ai.google/pair) was published on GitHub - [Facets](https://github.com/PAIR-code/facets). 
